@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Rx Promise Test</title>
+	</head>
+	<body>
+		<script src="promise.js"></script>
+		<script>
+			var promise = new Rx.Promise();
+			promise.then(function (value) {
+				console.log(value, 'value');
+			});
+			promise.fulfill(42);
+
+			var promise2 = new Rx.Promise(function (fulfill, reject) {
+				fulfill(56);
+			});
+
+			promise2.then(function (value) {
+				console.log(value, 'value');
+			});
+		</script>
+	</body>
+</html>
